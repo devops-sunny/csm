@@ -1,0 +1,7 @@
+**/*.html
+**/*.config.*
+eslint
+node_modules
+**/shared/types/api/generated.ts
+**/shared/types/api/generated-type.ts
+src/shared/libs/quill/mobile-resizer-module.ts

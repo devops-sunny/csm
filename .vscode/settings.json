@@ -1,0 +1,12 @@
+{
+  "javascript.preferences.useAliasesForRenames": false,
+  "typescript.preferences.useAliasesForRenames": false,
+  "typescript.preferences.importModuleSpecifier": "non-relative",
+  "editor.formatOnSave": false,
+  "editor.codeActionsOnSave": [
+    "source.fixAll.eslint"
+  ],
+  "workbench.colorCustomizations": {
+    "titleBar.activeBackground": "#EC5160",
+  }
+}

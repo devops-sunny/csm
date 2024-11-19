@@ -1,0 +1,1 @@
+export const DASHBOARD_CELL_RATIO = 380 / 280;

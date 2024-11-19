@@ -1,0 +1,3 @@
+export const INFO_AND_FILTERS_BAR_HEIGHT = 56;
+
+export const SETTING_FIELDS_HEIGHT = 80;

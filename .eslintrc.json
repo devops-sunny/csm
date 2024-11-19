@@ -1,0 +1,223 @@
+{
+  "parserOptions": {
+    "tsconfigRootDir": ".",
+    "project": "./tsconfig.json"
+  },
+  "extends": [
+    "next/core-web-vitals",
+    "airbnb",
+    "airbnb-typescript",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/strict",
+    "plugin:react/recommended",
+    "next",
+    "plugin:react-hooks/recommended",
+    "plugin:import/typescript",
+    "plugin:import/recommended",
+    "plugin:unicorn/all",
+    "plugin:eslint-comments/recommended",
+    "prettier"
+  ],
+  "plugins": ["local", "prettier"],
+  "rules": {
+    // OFF RULES
+    "jsx-a11y/media-has-caption": "off",
+    "import/prefer-default-export": "off",
+    "react/jsx-props-no-spreading": "off",
+    "unicorn/prevent-abbreviations": "off",
+    "no-underscore-dangle": "off",
+    "unicorn/no-keyword-prefix": "off",
+    "unicorn/no-array-for-each": "off",
+    "unicorn/no-null": "off",
+    "unicorn/new-for-builtins": "off",
+    "unicorn/no-array-reduce": "off",
+    "unicorn/prefer-ternary": "off",
+    "unicorn/explicit-length-check": "off",
+    // ON RULES
+    "prettier/prettier": "error",
+    "import/no-duplicates": "error",
+    "@typescript-eslint/no-explicit-any": "error",
+    "@typescript-eslint/prefer-nullish-coalescing": "error",
+    "@typescript-eslint/consistent-type-imports": "error",
+    "@typescript-eslint/no-unnecessary-condition": "error",
+    "no-multiple-empty-lines": "error",
+    "unicorn/no-abusive-eslint-disable": "error",
+    "@typescript-eslint/no-non-null-assertion": "error",
+    "consistent-return": "error",
+    "react/jsx-pascal-case": "error",
+    "@typescript-eslint/no-unused-vars": "error",
+    "eslint-comments/no-unused-disable": "error",
+    // CUSTOM RULES
+    "quotes": [2, "single"],
+    "eol-last": 2,
+    "max-params": ["error", 3],
+    "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
+    "react/jsx-no-duplicate-props": [2, { "ignoreCase": false }],
+    "no-param-reassign": [
+      "error",
+      { "props": true, "ignorePropertyModificationsFor": ["prev", "acc"] }
+    ],
+    "react/no-unstable-nested-components": [
+      "error",
+      {
+        "allowAsProps": true
+      }
+    ],
+    "local/no-relative-imports": [
+      "error",
+      {
+        "ignoredExtensions": [".css", ".scss"]
+      }
+    ],
+    "local/no-default-export": [
+      "error",
+      {
+        "ignoredFolders": ["pages", "app", "codegen"]
+      }
+    ],
+    "local/restricted-import": [
+      "error",
+      {
+        "pairs": [
+          {
+            "from": "features/",
+            "to": "src/shared/"
+          },
+          {
+            "from": "app/",
+            "to": "src/shared/"
+          },
+          {
+            "from": "app/",
+            "to": "src/features/"
+          }
+        ],
+        "noCrossFolders": ["features"]
+      }
+    ],
+    "no-restricted-imports": [
+      "error",
+      {
+        "paths": [
+          {
+            "name": "jotai",
+            "importNames": ["useAtom", "atom"],
+            "message": "These imports are not allowed, Please follow project patterns"
+          },
+          {
+            "name": "swr/mutation",
+            "importNames": ["default"],
+            "message": "These imports are not allowed, Please follow project patterns"
+          },
+          {
+            "name": "swr",
+            "importNames": ["default", "useSWRConfig"],
+            "message": "These imports are not allowed, Please follow project patterns"
+          }
+        ],
+        "patterns": ["@mui/*/*/*"]
+      }
+    ],
+    "unicorn/filename-case": [
+      "error",
+      {
+        "case": "kebabCase",
+        "ignore": ["^\\[.*\\]\\.tsx$"]
+      }
+    ],
+    "import/order": [
+      "error",
+      {
+        "newlines-between": "always",
+        "distinctGroup": false,
+        "groups": [
+          ["builtin", "external"],
+          "internal",
+          ["parent", "sibling", "index"]
+        ],
+        "pathGroups": [
+          {
+            "pattern": "react",
+            "group": "external",
+            "position": "before"
+          },
+          {
+            "pattern": "next",
+            "group": "external",
+            "position": "before"
+          },
+          {
+            "pattern": "(@mui|@material-ui)",
+            "group": "external",
+            "position": "before"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": [
+          "react",
+          "next",
+          "@mui",
+          "@material-ui"
+        ],
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        }
+      }
+    ],
+    "padding-line-between-statements": [
+      "error",
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": [
+          "return",
+          "if",
+          "export",
+          "try",
+          "break",
+          "iife",
+          "for",
+          "while"
+        ]
+      },
+      {
+        "blankLine": "always",
+        "prev": [
+          "function",
+          "block-like",
+          "multiline-const",
+          "multiline-let",
+          "iife",
+          "for",
+          "while"
+        ],
+        "next": "*"
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["**/*.tsx"],
+      "rules": {
+        "react/react-in-jsx-scope": "off",
+        "react/prop-types": "off",
+        "react/function-component-definition": "off",
+        "unicorn/consistent-function-scoping": "off",
+        "react/require-default-props": "off",
+        "@typescript-eslint/no-use-before-define": "off",
+        "jsx-a11y/anchor-is-valid": [
+          "off",
+          {
+            "components": ["Link"]
+          }
+        ]
+      }
+    },
+    {
+      "files": ["./src/shared/hooks/api/core/*.ts"],
+      "rules": {
+        "no-restricted-imports": "off"
+      }
+    }
+  ]
+}

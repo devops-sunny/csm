@@ -1,0 +1,3 @@
+export const SEARCH_INPUT_HEIGHT = 64;
+
+export const MOBILE_SEARCH_INPUT_HEIGHT = 72;

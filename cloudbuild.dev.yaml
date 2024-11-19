@@ -1,0 +1,42 @@
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args: [
+        'build', 
+        '--build-arg',
+        'NEXT_PUBLIC_BASE_API=$_NEXT_PUBLIC_BASE_API',
+        '--progress',
+        'plain',
+        '--no-cache',
+        '-t', 
+        'gcr.io/the-business-shift-413117/business-shift-frontend-dev',
+        '.'
+        ]
+
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/the-business-shift-413117/business-shift-frontend-dev']
+
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args:
+      - 'run'
+      - 'deploy'
+      - 'business-shift-frontend-dev'
+      - '--image'
+      - 'gcr.io/the-business-shift-413117/business-shift-frontend-dev'
+      - '--port'
+      - '80'
+      - '--region'
+      - 'us-east4'
+      - '--platform'
+      - 'managed'
+      - '--allow-unauthenticated'
+      - '--max-instances'
+      - '5'
+      - '--memory'
+      - '250Mi'
+      - '--timeout'
+      - '60'
+
+timeout: 1800s
+
+images:
+  - gcr.io/the-business-shift-413117/business-shift-frontend-dev

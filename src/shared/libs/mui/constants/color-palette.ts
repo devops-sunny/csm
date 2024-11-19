@@ -1,0 +1,16 @@
+export enum ColorPalette {
+  White = '#ffffff',
+  SuccessGreen = '#0DAB63',
+  Blueberry = '#5593ff',
+  Azure = '#375fa4',
+  EastBay = '#3c5277',
+  Cello = '#203965',
+  BlueHaze = '#c8d0de',
+  Periwinkle = '#bbd4ff',
+  Shark = '#2b2d2f',
+  CatskillWhite = '#e9edf5',
+  SalmonPearl = '#EC5160',
+  CadetBlue = '#9daac1',
+  OxfordBlue = '#303946',
+  BlackCoralPearl = '#58677d',
+}

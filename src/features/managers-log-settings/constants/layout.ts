@@ -1,0 +1,3 @@
+export const MOBILE_TAB_LIST_HEIGHT = 41;
+
+export const MOBILE_FACILITY_SELECT_HEIGHT = 73;
